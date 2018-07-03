@@ -3,9 +3,9 @@ const buttonElement = document.getElementById('boton');
 
 
 const data = (idCohort) => {
-    const dataCohortUrl = 'https://raw.githubusercontent.com/GabyMarapi/lim-2018-05-bc-core-pm-datadashboard/master/data/cohorts.json';
-    const dataUserUrl = 'https://raw.githubusercontent.com/GabyMarapi/lim-2018-05-bc-core-pm-datadashboard/master/data/cohorts/' + idCohort + '/users.json';
-    const dataProgressUrl = 'https://raw.githubusercontent.com/GabyMarapi/lim-2018-05-bc-core-pm-datadashboard/master/data/cohorts/' + idCohort + '/progress.json';
+    const dataCohortUrl = 'https://api.laboratoria.la/cohorts/';
+    const dataUserUrl = 'https://api.laboratoria.la/cohorts/' + idCohort + '/users';
+    const dataProgressUrl = 'https://api.laboratoria.la/cohorts/' + idCohort + '/progress';
 
     fetch(dataCohortUrl).then(response => {
         const responseCohort = response.json()
@@ -21,9 +21,17 @@ const data = (idCohort) => {
                         const responseUserValue = value[1];
                         const responseProgressValue = value[2];
 
+                        const cohortSelected = responseCohortValue.filter(value => {
+                            return value.id == idCohort
+                        })
+                        const dataCohortSelected = cohortSelected[0];
+
+                        const courses = Object.keys(dataCohortSelected.coursesIndex);
+
+                        console.log(courses)
 
                         const option = {
-                            cohort: responseCohortValue,
+                            cohort: cohortSelected[0],
                             cohortData: {
                                 users: responseUserValue,
                                 progress: responseProgressValue
@@ -35,41 +43,21 @@ const data = (idCohort) => {
                         console.log(responseUserValue);
                         console.log(responseProgressValue);
 
+                        computeUserStats = (users, progress, courses) => {
+                            const userStudent = user.filter(value => {
+                                return value.role == 'student'
+                            })
 
-                        const exercisesTotal = 0;
-                        const exercisesCompleted = 0;
-                        const exercisesPercent = 0;
-                        const exercisesReads = 0;
+                            userStudent.map()
 
-                       
-                        console.log(responseProgressValue[responseUserValue[0].id]);
+                        }
 
+                        //computeUserStats(responseUserValue,responseProgressValue,courses)
                         
-                        /*
-                        let stats = {
-                             percent: '',
-                            exercises: {    
-                                total: 0,
-                                completed: 0,
-                                percent: 0,
-                                reads: 0,
-                            } */
-
-                        
-/*
-                        const signupCohort = responseUserValue[0].signupCohort;
-                        
-                        for (let value in responseCohortValue) {
-                            console.log(value);
-                            if (value.id == signupCohort) {
-                                const arregloStrinCourses = value.coursesIndex;
-                               
-                            }
-                        }*/
 
 
 
-                        // processCohortData(option);
+
 
                     })
 
@@ -83,7 +71,7 @@ const data = (idCohort) => {
 
 
 const dataCohort = () => {
-    fetch('http://127.0.0.1:5500/data/cohorts.json')
+    fetch('https://api.laboratoria.la/cohorts/')
         .then(response => {
             return response.json();
         })
@@ -121,11 +109,21 @@ const dataCohort = () => {
 }
 
 
+
+
+
+
 buttonElement.addEventListener('click', () => { dataCohort(); });
 
 resultCohortElement.addEventListener('click', (event) => {
-    const idCohort = event.target.id;
-    resultCohortElement.style.display = 'none'
-    data(idCohort);
+
+    if (event.target.nodeName === "BUTTON") {
+        console.log(event);
+        const idCohort = event.target.id;
+        console.log(event.target.id);
+        resultCohortElement.style.display = 'none'
+        data(idCohort);
+    }
 });
+
 
