@@ -10,13 +10,6 @@ const btnChile = document.getElementById("buttonSdc");
 const btnSaoPaulo = document.getElementById("buttonSpl");
 const btnMexico = document.getElementById("buttonCdm");
 
-<<<<<<< HEAD
-const data = (idCohort) => {
-    const dataCohortUrl = 'https://api.laboratoria.la/cohorts/';
-    const dataUserUrl = 'https://api.laboratoria.la/cohorts/' + idCohort + '/users';
-    const dataProgressUrl = 'https://api.laboratoria.la/cohorts/' + idCohort + '/progress';
-=======
->>>>>>> 033655e87bd0def55ff2ff867221f190629a55b6
 
 const inputElement = document.getElementById('input');
 const bodyElement = document.getElementById('body');
@@ -104,57 +97,18 @@ const data = (idCohort, orderBy, orderDirection, search) => {
                         const responseUserValue = value[1];
                         const responseProgressValue = value[2];
 
-<<<<<<< HEAD
-                        const cohortSelected = responseCohortValue.filter(value => {
-                            return value.id == idCohort
-                        })
-                        const dataCohortSelected = cohortSelected[0];
-
-                        const courses = Object.keys(dataCohortSelected.coursesIndex);
-
-                        console.log(courses)
-
-                        const option = {
-                            cohort: cohortSelected[0],
-=======
                         const dataCohortSelected = responseCohortValue.filter(cohort => cohort.id == idCohort)[0];
 
                         const options = {
                             cohort: dataCohortSelected,
->>>>>>> 033655e87bd0def55ff2ff867221f190629a55b6
                             cohortData: {
                                 users: responseUserValue,
                                 progress: responseProgressValue
                             },
-<<<<<<< HEAD
-                            orderBy: 'asc',
-                            search: 'desc'
-                        }
-                        console.log(responseCohortValue);
-                        console.log(responseUserValue);
-                        console.log(responseProgressValue);
-
-                        computeUserStats = (users, progress, courses) => {
-                            const userStudent = user.filter(value => {
-                                return value.role == 'student'
-                            })
-
-                            userStudent.map()
-
-                        }
-
-                        //computeUserStats(responseUserValue,responseProgressValue,courses)
-                        
-
-
-
-
-=======
                             orderBy: orderBy,
                             orderDirection: orderDirection,
                             search: search
                         };
->>>>>>> 033655e87bd0def55ff2ff867221f190629a55b6
 
                         const resultProcessedData = processCohortData(options);
 
@@ -168,14 +122,7 @@ const data = (idCohort, orderBy, orderDirection, search) => {
 
 //Función para mostrar mostrar los cohorts por sede
 
-<<<<<<< HEAD
-
-
-
-const dataCohort = () => {
-=======
 const dataCohort = (place) => {
->>>>>>> 033655e87bd0def55ff2ff867221f190629a55b6
     fetch('https://api.laboratoria.la/cohorts/')
         .then(response => {
             return response.json();
@@ -370,28 +317,10 @@ btnsortDescElement04.addEventListener('click', () => {
     orderDirection = 'ASC';
     bodyElement.innerHTML = '';
 
-<<<<<<< HEAD
-
-
-
-
-buttonElement.addEventListener('click', () => { dataCohort(); });
-
-resultCohortElement.addEventListener('click', (event) => {
-
-    if (event.target.nodeName === "BUTTON") {
-        console.log(event);
-        const idCohort = event.target.id;
-        console.log(event.target.id);
-        resultCohortElement.style.display = 'none'
-        data(idCohort);
-    }
-=======
     btnsortDescElement04.style.display = 'none';
     btnsortAscElement04.style.display = 'block';
 
     data(idCohort, orderBy, orderDirection, search);
->>>>>>> 033655e87bd0def55ff2ff867221f190629a55b6
 });
 btnsortAscElement05.addEventListener('click', () => {
 
@@ -403,8 +332,6 @@ btnsortAscElement05.addEventListener('click', () => {
 
 
 
-<<<<<<< HEAD
-=======
     data(idCohort, orderBy, orderDirection, search);
 });
 btnsortDescElement05.addEventListener('click', () => {
@@ -418,4 +345,3 @@ btnsortDescElement05.addEventListener('click', () => {
 
     data(idCohort, orderBy, orderDirection, search);
 });
->>>>>>> 033655e87bd0def55ff2ff867221f190629a55b6
