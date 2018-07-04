@@ -117,6 +117,7 @@
     float: left;
 }
 
+
 .logo{
     background-color: #000000;
     text-align: center;
@@ -186,19 +187,26 @@ footer{
 #containerdata{
     width: 100%;
     height: 612px;
-    
 }
 
 .containersedes{
+    height: 612px;
     overflow: hidden;
 }
 
+.containermap{
+    width: 100%;
+    height: 612px;
+    /*background: #E3E3E1;*/
+    background: #E6E6E6;
+}
+
+#containermap{
+    overflow: hidden;
+}
 
 #imgmap{
-    width: 100%;
-    height: 550px;
     float: left;
-    background: rgb(241, 241, 241);
 }
 
 #imgmap img{
@@ -210,10 +218,10 @@ footer{
 
 #btn-sedes{
     width: 30%;
-    padding: 40px 120px;
+    height: 60%;
     text-align: center;
-    float: right;
-    margin-top: -500px;
+    float: left;
+    margin: 100px 100px;
 }
 
 #btn-sedes h2{
@@ -232,16 +240,22 @@ footer{
     border-radius: 7px;
     cursor: pointer;
 }
+
 #conteinerCohorts{
     width: 100%;
-    display: none;
+
 }
+#textCohort p{
+ text-transform: uppercase;
+}
+
 #cohortsSelected{
     width: 100%;
-    background: #E3E3E1;
     height: 550px;
     overflow-y: scroll;
+    background: #E6E6E6;
 }
+
 #table{
     width: 100%;
     height: 550px;
@@ -268,16 +282,21 @@ footer{
     margin-right: 30px;
     margin-top: 0px;
 }
+#textCohort{
+    padding: 0px 20px;
+    font-size: 20px;
+}
 #input{
-    width: 40%;
+    width: 70%;
     height: 25px;
-    margin-left: 50%;
     border-radius: 5px;
     margin-bottom: 15px;
+    margin-top: 12px;
+    margin-right: 5px;
 }
 #filter{
-    width: 70px;
-    height: 25px;
+    width: 80px;
+    height: 35px;
     background-color: #FFE521;
     font-size: 17px;
     border: none;
@@ -285,19 +304,15 @@ footer{
     cursor: pointer;
     float: right;
     margin-right: 30px;
-    margin-top: 0px;
-    padding: 5px 5px;
+    margin-top: 7px;
 }
 
-#textCohort{
-    padding: 0px 20px;
-    font-size: 20px;
-}
 /*table css*/
 
 #containerTable{
-    display: none;
-    height: 612px
+    width: 100%;
+    height: 612px;
+    background-color: #E6E6E6;
 }
 .tableUserStats{
     padding: 1px;
@@ -306,8 +321,13 @@ footer{
     overflow-y: scroll;
 }
 
-table {
+#filterInput{
+    width: 45%;
+    float: right;
+}
 
+table {
+    background-color: #FFFFFF;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
@@ -360,4 +380,199 @@ th button::after{
 }
 .sortDesc{
     display: none;
+}
+
+@media screen and (max-width: 64em){
+    .containerdata{ 
+        width: 100%;
+        height: 612px;
+    }
+    .containersedes{
+        height: 612px;
+    }
+    .main{
+        width: 160px;
+        height: 612px;
+    }
+    .logo{
+        width: 160px;
+    }
+    .logo img {
+        width: 140px;
+        height: 25px;
+        padding-top: 20px;
+    }
+    .image{
+        width: 120px;
+    }
+    .main h2{
+        font-size: 20px;
+    }
+    .main nav{
+        font-size: 15px;
+    }
+    #text{
+        font-size: 30px;
+    }
+    #imgmap img{
+        width: 350px;
+        margin-left: 50px;
+    }
+    #btn-sedes{
+        width: 30%;
+        height: 60%;
+        margin: 60px 90px;
+    }
+
+    #btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
+        width: 150px;
+        height: 35px;
+        font-size: 15px;
+    }
+    #containerdata{
+        height: 612px;
+    }
+    .containermap{
+        height: 612px;
+    }
+}
+
+
+@media screen and (max-width: 60em) {
+
+}
+@media screen and (max-width: 48em) {
+    .containerdata{ 
+        width: 100%;
+        height: 550px;
+
+    }
+    .main{
+        width: 160px;
+        height: 550px;
+    }
+    .logo{
+        width: 160px;
+    }
+    .logo img {
+        width: 140px;
+        height: 25px;
+        padding-top: 20px;
+    }
+    .image{
+        width: 120px;
+    }
+    .main{
+        width: 160px;
+        height: 550px;
+    }
+    .main h2{
+        font-size: 20px;
+    }
+    .main nav{
+        font-size: 15px;
+    }
+    #text{
+        font-size: 25px;
+    }
+    #imgmap img{
+        width: 270px;
+        margin-left: 50px;
+    }
+   
+    #btn-sedes h2{
+        font-size: 18px;
+    }
+    #btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
+        width: 140px;
+        height: 30px;
+        font-size: 15px;
+    }
+    #containermap{
+        height: 550px;
+    }
+}
+
+@media screen and (max-width: 37.5em){
+    .containerdata{ 
+        width:100%;
+    }
+    .main{
+        width: 160px;
+        height: 612px;
+    }
+    .logo{
+        width: 160px;
+    }
+    .logo img {
+        width: 140px;
+        height: 25px;
+        padding-top: 20px;
+    }
+    .image{
+        width: 120px;
+    }
+    .main{
+        height: 550px;
+    }
+    .main h2{
+        font-size: 20px;
+    }
+    .main nav{
+        font-size: 15px;
+    }
+    #text{
+        font-size: 27px;
+    }
+    #imgmap img{
+        width: 280px;
+        margin-left: 50px;
+    }
+    #btn-sedes{
+        margin-top: 50px;
+    }
+    #btn-sedes h2{
+       font-size: 17px;
+    }
+    #btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
+        width: 140px;
+        height: 30px;
+        font-size: 14px;
+    }
+    #containermap{
+        height: 488px;
+    }
+}
+
+@media screen and (max-width: 30em){
+    .containerdata{ 
+        width:100%;
+    }
+    .navigation{
+        display: block;
+    }
+    .main{
+        display: none;
+    }
+    #text{
+        font-size: 24px;
+    }
+    #imgmap img{
+        width: 250px;
+        margin-left: 30px;
+    }
+    #btn-sedes{
+        margin-top: 70px;
+    }
+    #btn-sedes h2{
+       font-size: 15px;
+    }
+    #btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
+        width: 130px;
+        height: 20px;
+        font-size: 13px;
+    }
+    #containermap{
+        height: 488px;
+    }
 }
